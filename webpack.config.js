@@ -1,10 +1,22 @@
-const path = require('path')
+import path from 'path';
 
-module.exports = {
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export default {
   entry: './src/index.ts',
   output: {
-    filename: 'worker.js',
+    filename: 'worker.mjs',
     path: path.join(__dirname, 'dist'),
+    library: {
+      type: 'module',
+    },
+  },
+  experiments: {
+    outputModule: true,
   },
   devtool: 'cheap-module-source-map',
   mode: 'development',
