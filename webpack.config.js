@@ -22,6 +22,9 @@ export default {
   mode: 'development',
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
+    alias: {
+      '~': path.resolve(__dirname, 'src'),
+    },
   },
   module: {
     rules: [
